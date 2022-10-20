@@ -1,13 +1,14 @@
-import "./App.css";
-import { Header } from "./components/Header";
+import styles from './App.module.css';
 
 function App() {
+
+
   return (
     <div className="App">
-      <Header />
-      <h1>Hello world</h1>
+ 
+     <p>Hello World</p>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
