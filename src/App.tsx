@@ -1,14 +1,12 @@
-import styles from './App.module.css';
+import styles from "./App.module.css";
+import todoLogo from "./assets/todo-logo.svg";
 
 function App() {
-
-
   return (
-    <div className="App">
- 
-     <p>Hello World</p>
-    </div>
-  )
+    <header className={styles.header}>
+      <img src={todoLogo} alt="Foguete logotipo do aplicativo todo list" />
+    </header>
+  );
 }
 
-export default App
+export default App;
