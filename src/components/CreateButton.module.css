@@ -10,4 +10,9 @@
   color: var(--gray-100);
   font-weight: 700;
   background-color: var(--blue-dark);
+  transition: background-color 0.2s;
+}
+
+.createButton:hover {
+  background-color: var(--blue);
 }

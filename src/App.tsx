@@ -9,7 +9,9 @@ function App() {
         <img src={todoLogo} alt="Foguete logotipo do aplicativo todo list" />
       </header>
 
-      <Input />
+      <main>
+        <Input />
+      </main>
     </div>
   );
 }

@@ -1,0 +1,19 @@
+.taskForm {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.taskForm input {
+  padding: 1rem;
+  background-color: var(--gray-500);
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 523px;
+
+  color: var(--gray-100);
+}
+
+.taskForm input::placeholder {
+  color: var(--gray-300);
+}

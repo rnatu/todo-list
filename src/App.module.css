@@ -8,3 +8,9 @@
 .header img {
   margin-top: 4.5rem;
 }
+
+main {
+  margin: 0 auto;
+  max-width: calc(46rem + 1rem);
+  padding: 0 1rem;
+}
