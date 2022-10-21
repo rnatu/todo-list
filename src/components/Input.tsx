@@ -12,7 +12,7 @@ export function Input() {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" onChange={(e) => setTask(e.target.value)} />
-      <CreateButton />
+      <CreateButton type="submit" />
     </form>
   );
 }
