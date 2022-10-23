@@ -1,0 +1,53 @@
+.taskContainer {
+  background-color: var(--gray-500);
+  display: flex;
+  padding: 16px;
+  gap: 12px;
+}
+
+.taskContainer p {
+  color: var(--gray-100);
+  font-size: 14px;
+}
+
+.taskCheckBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  padding: 0.2044rem;
+}
+
+.taskCheckBox div {
+  border: 2px solid var(--blue);
+  border-radius: 999px;
+  width: 1.0906rem;
+  height: 1.0906rem;
+}
+
+.taskCheckBox:hover div {
+  border: 2px solid var(--blue-dark);
+  background-color: rgba(30, 111, 159, 0.2);
+}
+
+.taskDelete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+  height: fit-content;
+  border: none;
+}
+
+.taskDelete:hover {
+  border: transparent;
+  border-radius: 4px;
+
+  background-color: var(--gray-400);
+  content: url("../assets//delete-icon-hover.svg");
+}

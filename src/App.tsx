@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import todoLogo from "./assets/todo-logo.svg";
 import { Input } from "./components/Input";
+import { Task } from "./components/Task";
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
             Concluídas <span>2 de 5</span>
           </p>
         </header>
+
+        <div>
+          <Task />
+          <Task />
+        </div>
       </main>
     </div>
   );
