@@ -23,7 +23,7 @@ function App() {
           </p>
         </header>
 
-        <div>
+        <div className={styles.taskContainer}>
           <Task />
           <Task />
         </div>

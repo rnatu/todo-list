@@ -1,22 +1,37 @@
 import styles from "./Task.module.css";
-import checkboxUnchecked from "../assets/checkbox-unchecked.svg";
-import deleteIcon from "../assets/delete-icon.svg";
+import checkIcon from "../assets/check-icon.svg";
+import { useState } from "react";
 
 export function Task() {
+  const [checked, setChecked] = useState(false);
+
+  console.log(checked);
+
   return (
     <div className={styles.taskContainer}>
-      <button className={styles.taskCheckBox}>
-        <div />
+      <button
+        className={styles.taskCheckBox}
+        onClick={() => setChecked(!checked)}
+      >
+        {checked ? (
+          <div className={styles.checkedCheckBox}>
+            <img src={checkIcon} />
+          </div>
+        ) : (
+          <div />
+        )}
       </button>
 
-      <p>
+      <p
+        className={`${styles.taskDescription} ${
+          checked && styles.checkedTaskDescription
+        }`}
+      >
         Integer urna interdum massa libero auctor neque turpis turpis semper.
         Duis vel sed fames integer.
       </p>
 
-      <button className={styles.taskDelete}>
-        <img src={deleteIcon} alt="deletar tarefa" />
-      </button>
+      <button className={styles.taskDelete} />
     </div>
   );
 }

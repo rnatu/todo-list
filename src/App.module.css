@@ -46,3 +46,7 @@ main {
   padding: 2px 8px;
   border-radius: 999px;
 }
+
+.taskContainer {
+  margin-top: 1.5rem;
+}
