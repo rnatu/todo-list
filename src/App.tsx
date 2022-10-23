@@ -2,8 +2,30 @@ import styles from "./App.module.css";
 import todoLogo from "./assets/todo-logo.svg";
 import { Input } from "./components/Input";
 import { Task } from "./components/Task";
+import emptyIcon from "./assets/empty-icon.svg";
 
 function App() {
+  const tasks: any = [
+    // {
+    //   id: 12334,
+    //   taskDescription:
+    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit voluptatum illum laborum, tempore officiis soluta sunt, adipisci est sint, similique voluptatem! Itaque architecto iste veniam nostrum accusamus doloremque animi eaque.",
+    //   isCompleted: false,
+    // },
+    // {
+    //   id: 445345,
+    //   taskDescription:
+    //     "oluta sunt, adipisci est sint, similique voluptatem! Itaque architecto iste veniam nostrum accusamus",
+    //   isCompleted: false,
+    // },
+    // {
+    //   id: 4494948,
+    //   askDescription:
+    //     "unt, olut sint, similiquea sadipisci est voluptatem! Itaque architecto iamus",
+    //   isCompleted: false,
+    // },
+  ];
+
   return (
     <div>
       <header className={styles.header}>
@@ -24,8 +46,15 @@ function App() {
         </header>
 
         <div className={styles.taskContainer}>
-          <Task />
-          <Task />
+          {tasks.length > 0 ? (
+            tasks.map(() => <Task />)
+          ) : (
+            <div className={styles.emptyTaskContainer}>
+              <img src={emptyIcon} alt="Ícone ilustrando lista vazia" />
+              <p>Você ainda não tem tarefas cadastradas</p>
+              <p>Crie tarefas e organize seus itens a fazer</p>
+            </div>
+          )}
         </div>
       </main>
     </div>
