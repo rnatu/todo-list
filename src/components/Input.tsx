@@ -21,11 +21,17 @@ export function Input({ onAddTask }: InputProps) {
 
     if (description === "") return;
 
-    onAddTask({
-      id: uuidv4(),
-      description: description,
-      isCompleted: false,
-    });
+    try {
+      onAddTask({
+        id: uuidv4(),
+        description: description,
+        isCompleted: false,
+      });
+    } catch (err) {
+      if (err instanceof ErrorEvent) alert(err.message);
+    } finally {
+      setDescription("");
+    }
   };
 
   return (
@@ -34,6 +40,7 @@ export function Input({ onAddTask }: InputProps) {
         type="text"
         placeholder="Adicione uma nova tarefa"
         onChange={(e) => setDescription(e.target.value)}
+        value={description}
       />
       <CreateButton type="submit" />
     </form>

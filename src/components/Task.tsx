@@ -2,7 +2,12 @@ import styles from "./Task.module.css";
 import checkIcon from "../assets/check-icon.svg";
 import { useState } from "react";
 
-export function Task() {
+interface TaskProps {
+  description: string;
+  isCompleted: boolean;
+}
+
+export function Task({ description, isCompleted }: TaskProps) {
   const [checked, setChecked] = useState(false);
 
   return (
@@ -11,7 +16,7 @@ export function Task() {
         className={styles.taskCheckBox}
         onClick={() => setChecked(!checked)}
       >
-        {checked ? (
+        {isCompleted ? (
           <div className={styles.checkedCheckBox}>
             <img src={checkIcon} />
           </div>
@@ -25,8 +30,7 @@ export function Task() {
           checked && styles.checkedTaskDescription
         }`}
       >
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
+        {description}
       </p>
 
       <button className={styles.taskDelete} />

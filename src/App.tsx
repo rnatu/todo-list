@@ -14,8 +14,6 @@ interface ITask {
 function App() {
   const [tasks, setTasks] = useState<ITask[]>([]);
 
-  console.log(tasks);
-
   const addTask = (task: ITask) => {
     setTasks((oldTasks) => [...oldTasks, task]);
   };
@@ -41,7 +39,13 @@ function App() {
 
         <div className={styles.taskContainer}>
           {tasks.length > 0 ? (
-            tasks.map((task) => <Task />)
+            tasks.map((task) => (
+              <Task
+                key={task.id}
+                description={task.description}
+                isCompleted={task.isCompleted}
+              />
+            ))
           ) : (
             <div className={styles.emptyTaskContainer}>
               <img src={emptyIcon} alt="Ícone ilustrando lista vazia" />
