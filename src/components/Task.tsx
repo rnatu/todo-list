@@ -5,16 +5,23 @@ import { useState } from "react";
 interface TaskProps {
   description: string;
   isCompleted: boolean;
+  id: string;
+  onToggleComplete: (id: string) => void;
 }
 
-export function Task({ description, isCompleted }: TaskProps) {
+export function Task({
+  description,
+  isCompleted,
+  id,
+  onToggleComplete,
+}: TaskProps) {
   const [checked, setChecked] = useState(false);
 
   return (
     <div className={styles.taskContainer}>
       <button
         className={styles.taskCheckBox}
-        onClick={() => setChecked(!checked)}
+        onClick={() => onToggleComplete(id)}
       >
         {isCompleted ? (
           <div className={styles.checkedCheckBox}>
@@ -27,7 +34,7 @@ export function Task({ description, isCompleted }: TaskProps) {
 
       <p
         className={`${styles.taskDescription} ${
-          checked && styles.checkedTaskDescription
+          isCompleted && styles.checkedTaskDescription
         }`}
       >
         {description}

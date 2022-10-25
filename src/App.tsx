@@ -18,6 +18,22 @@ function App() {
     setTasks((oldTasks) => [...oldTasks, task]);
   };
 
+  const toggleCompleteStatus = (taskId: string) => {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        };
+      }
+      return task;
+    });
+
+    setTasks(newTasks);
+  };
+
+  console.log(tasks);
+
   return (
     <div>
       <header className={styles.header}>
@@ -42,8 +58,10 @@ function App() {
             tasks.map((task) => (
               <Task
                 key={task.id}
+                id={task.id}
                 description={task.description}
                 isCompleted={task.isCompleted}
+                onToggleComplete={toggleCompleteStatus}
               />
             ))
           ) : (
