@@ -1,21 +1,39 @@
 import { FormEvent, useState } from "react";
 import { CreateButton } from "./CreateButton";
 import styles from "./Input.module.css";
+import { v4 as uuidv4 } from "uuid";
 
-export function Input() {
-  const [taskInput, setTaskInput] = useState("");
+interface ITask {
+  id: string;
+  description: string;
+  isCompleted: boolean;
+}
 
-  const handleSubmit = (event: FormEvent) => {
+interface InputProps {
+  onAddTask: (task: ITask) => void;
+}
+
+export function Input({ onAddTask }: InputProps) {
+  const [description, setDescription] = useState("");
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("🚀 ~ file: Input.tsx ~ line 6 ~ Input ~ taskInput", taskInput);
+
+    if (description === "") return;
+
+    onAddTask({
+      id: uuidv4(),
+      description: description,
+      isCompleted: false,
+    });
   };
 
   return (
     <form onSubmit={handleSubmit} className={styles.taskForm}>
       <input
         type="text"
-        onChange={(e) => setTaskInput(e.target.value)}
         placeholder="Adicione uma nova tarefa"
+        onChange={(e) => setDescription(e.target.value)}
       />
       <CreateButton type="submit" />
     </form>

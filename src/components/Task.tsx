@@ -5,8 +5,6 @@ import { useState } from "react";
 export function Task() {
   const [checked, setChecked] = useState(false);
 
-  console.log(checked);
-
   return (
     <div className={styles.taskContainer}>
       <button

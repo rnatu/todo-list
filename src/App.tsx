@@ -3,28 +3,22 @@ import todoLogo from "./assets/todo-logo.svg";
 import { Input } from "./components/Input";
 import { Task } from "./components/Task";
 import emptyIcon from "./assets/empty-icon.svg";
+import { useState } from "react";
+
+interface ITask {
+  id: string;
+  description: string;
+  isCompleted: boolean;
+}
 
 function App() {
-  const tasks: any = [
-    // {
-    //   id: 12334,
-    //   taskDescription:
-    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit voluptatum illum laborum, tempore officiis soluta sunt, adipisci est sint, similique voluptatem! Itaque architecto iste veniam nostrum accusamus doloremque animi eaque.",
-    //   isCompleted: false,
-    // },
-    // {
-    //   id: 445345,
-    //   taskDescription:
-    //     "oluta sunt, adipisci est sint, similique voluptatem! Itaque architecto iste veniam nostrum accusamus",
-    //   isCompleted: false,
-    // },
-    // {
-    //   id: 4494948,
-    //   askDescription:
-    //     "unt, olut sint, similiquea sadipisci est voluptatem! Itaque architecto iamus",
-    //   isCompleted: false,
-    // },
-  ];
+  const [tasks, setTasks] = useState<ITask[]>([]);
+
+  console.log(tasks);
+
+  const addTask = (task: ITask) => {
+    setTasks((oldTasks) => [...oldTasks, task]);
+  };
 
   return (
     <div>
@@ -33,11 +27,11 @@ function App() {
       </header>
 
       <main>
-        <Input />
+        <Input onAddTask={addTask} />
 
         <header className={styles.taskHeader}>
           <p>
-            Tarefas criadas <span>5</span>
+            Tarefas criadas <span>{tasks.length}</span>
           </p>
 
           <p>
@@ -47,7 +41,7 @@ function App() {
 
         <div className={styles.taskContainer}>
           {tasks.length > 0 ? (
-            tasks.map(() => <Task />)
+            tasks.map((task) => <Task />)
           ) : (
             <div className={styles.emptyTaskContainer}>
               <img src={emptyIcon} alt="Ícone ilustrando lista vazia" />
