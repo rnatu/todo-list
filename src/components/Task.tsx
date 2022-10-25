@@ -1,6 +1,5 @@
 import styles from "./Task.module.css";
 import checkIcon from "../assets/check-icon.svg";
-import { useState } from "react";
 
 interface TaskProps {
   description: string;
@@ -15,8 +14,6 @@ export function Task({
   id,
   onToggleComplete,
 }: TaskProps) {
-  const [checked, setChecked] = useState(false);
-
   return (
     <div className={styles.taskContainer}>
       <button
