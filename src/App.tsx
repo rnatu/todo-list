@@ -13,6 +13,7 @@ interface ITask {
 
 function App() {
   const [tasks, setTasks] = useState<ITask[]>([]);
+  const completedTasks = tasks.filter((task) => task.isCompleted);
 
   const addTask = (task: ITask) => {
     setTasks((oldTasks) => [...oldTasks, task]);
@@ -32,7 +33,7 @@ function App() {
     setTasks(newTasks);
   };
 
-  console.log(tasks);
+  console.log(completedTasks);
 
   return (
     <div>
@@ -49,7 +50,10 @@ function App() {
           </p>
 
           <p>
-            Concluídas <span>2 de 5</span>
+            Concluídas{" "}
+            <span>
+              {completedTasks.length} de {tasks.length}
+            </span>
           </p>
         </header>
 
