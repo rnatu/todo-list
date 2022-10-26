@@ -6,6 +6,7 @@ interface TaskProps {
   isCompleted: boolean;
   id: string;
   onToggleComplete: (id: string) => void;
+  onDeleteTask: (id: string) => void;
 }
 
 export function Task({
@@ -13,6 +14,7 @@ export function Task({
   isCompleted,
   id,
   onToggleComplete,
+  onDeleteTask,
 }: TaskProps) {
   return (
     <div className={styles.taskContainer}>
@@ -37,7 +39,7 @@ export function Task({
         {description}
       </p>
 
-      <button className={styles.taskDelete} />
+      <button className={styles.taskDelete} onClick={() => onDeleteTask(id)} />
     </div>
   );
 }

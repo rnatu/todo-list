@@ -33,7 +33,16 @@ function App() {
     setTasks(newTasks);
   };
 
-  console.log(completedTasks);
+  const deleteTask = (taskId: string) => {
+    const newTasks = tasks.filter((task) => {
+      if (task.id !== taskId) {
+        return task;
+      }
+      return;
+    });
+
+    setTasks(newTasks);
+  };
 
   return (
     <div>
@@ -66,6 +75,7 @@ function App() {
                 description={task.description}
                 isCompleted={task.isCompleted}
                 onToggleComplete={toggleCompleteStatus}
+                onDeleteTask={deleteTask}
               />
             ))
           ) : (
